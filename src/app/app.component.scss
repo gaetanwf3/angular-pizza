@@ -1,0 +1,10 @@
+$color: lightgreen;
+
+li {
+	transition: 0.5s;
+
+	&:hover {
+		cursor: pointer;
+	box-shadow: 1px 1px 1px 1px lightgrey;
+	}
+}
