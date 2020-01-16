@@ -20,9 +20,12 @@
       <div class="card" [class.selected]="pizza === selectedPizza">
         <div class="card-body">
           <h5 class="card-title">{{ pizza.name }}</h5>
-          <p *ngIf="selectedIngredient">
-            Vous avez choisi : {{ selectedIngredient.name }}
-          </p>
+          <span *ngFor="let selectedIngredient of selectedIngredients; index as i" 
+          class="badge badge-primary"
+          >
+             {{ selectedIngredient.name }}
+             <span (click)="deleteIngredient(i, $event)">X</span>
+          </span>
         </div>
       </div>
     </div>

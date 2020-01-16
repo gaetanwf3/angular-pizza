@@ -20,9 +20,9 @@ export class AppComponent {
   selectedPizza: Pizza;
   pizzas: Pizza[] = PIZZAS;
   user: User = {
-    name: 'Mota',
-    firstname: 'Matthieu',
-    birthday: '1991-11-18',
+    name: 'Rogie',
+    firstname: 'Gaetan',
+    birthday: '1985-01-04',
     avatar: 'https://www.gravatar.com/avatar/5355a3882df0fdd7689f8b0b5dc50720',
     age: null
   };
@@ -30,7 +30,7 @@ export class AppComponent {
     { name: 'Tomate', image: 'tomate.jpg', weight: 50, price: 2 },
     { name: 'Olive', image: 'olive.jpeg', weight: 5, price: 1 }
   ];
-  selectedIngredient: Ingredient;
+  selectedIngredients: Ingredient[] = [];
 
   constructor() {
     this.calculateAge();
@@ -53,6 +53,17 @@ export class AppComponent {
 
   selectIngredient(event: Ingredient) {
     console.log(event);
-    this.selectedIngredient = event;
+
+    // si l'ingredient n'est pas encore dans la liste des ingrédients sélectionnés on l'ajoute
+    if(!this.selectedIngredients.includes(event)) {
+      this.selectedIngredients.push(event);
+    }
   }
+
+  deleteIngredient(index: number, event) {
+    event.stopPropagation();
+    // On supprime l'index du tableau
+     this.selectedIngredients.splice(index, 1);
+  }
+ 
 }
