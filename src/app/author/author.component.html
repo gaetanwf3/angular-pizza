@@ -1,0 +1,6 @@
+<div *ngIf="user?.firstname && user?.name">
+    <h2>{{ user?.firstname + ' ' + user?.name }}</h2>
+    <p>{{ user?.birthday }}</p>
+    <p>Il a {{ user?.age }} ans</p>
+    <img width="10" [src]="user?.avatar" alt="{{ user?.name }}">
+</div>

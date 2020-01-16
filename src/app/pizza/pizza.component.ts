@@ -7,5 +7,5 @@ import { Pizza } from '../models/pizza.model';
   styleUrls: ['./pizza.component.scss']
 })
 export class PizzaComponent {
-	@Input() pizza: Pizza;
+  @Input() pizza: Pizza;
 }
