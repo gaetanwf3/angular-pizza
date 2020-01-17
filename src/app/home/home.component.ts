@@ -15,11 +15,12 @@ import { PizzaService } from '../pizza.service';
 export class HomeComponent {
 selectedPizza: Pizza;
   pizzas: Pizza[];
+  number = 2;
   user: User = {
     name: 'Rogie',
     firstname: 'Gaetan',
     birthday: '1985-01-04',
-    avatar: 'https://www.gravatar.com/avatar/5355a3882df0fdd7689f8b0b5dc50720',
+    avatar: 'img1.jpg',
     age: null
   };
   ingredients: Ingredient[] = [

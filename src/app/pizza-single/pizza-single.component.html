@@ -1,1 +1,7 @@
-<p>pizza-single works!</p>
+<div *ngIf="pizza">
+	{{ pizza | json }}	
+	<h1>{{ pizza.name }}</h1>
+	<h3>Prix HT : {{ pizza.price }}</h3>
+	<h2>Prix TTC : {{ pizza.price | test }}</h2>	
+</div>
+
