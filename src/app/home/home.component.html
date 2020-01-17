@@ -18,6 +18,7 @@
           <h5 class="card-title">{{ pizza.name }}</h5>
           <p>Prix HT : {{ pizza.price }}</p>
           <p>Prix TTC : {{ pizza.price | test }}</p>
+          <a routerLink="/pizzas/{{ pizza.id}}" class="btn btn-primary">Voir la pizza</a>
           <span *ngFor="let selectedIngredient of selectedIngredients; index as i" 
           class="badge badge-primary"
           >

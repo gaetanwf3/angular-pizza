@@ -1,15 +1,11 @@
 import { Component } from '@angular/core';
-import { Pizza } from './models/pizza.model';
+import { Pizza } from '../models/pizza.model';
 import { User } from './models/user.model';
 import { Ingredient } from './models/ingredient.model';
+import { PizzaService } from '../pizza.service';
 
   
-const PIZZAS: Pizza[] = [
-  { id: 1, name: 'Reine', price: 12 },
-  { id: 2, name: '4 fromages', price: 13 },
-  { id: 3, name: 'Orientale', price: 11 },
-  { id: 4, name: 'Cannibale', price: 9 }
-];
+
 
 @Component({
   selector: 'app-home',
@@ -18,7 +14,7 @@ const PIZZAS: Pizza[] = [
 })
 export class HomeComponent {
 selectedPizza: Pizza;
-  pizzas: Pizza[] = PIZZAS;
+  pizzas: Pizza[];
   user: User = {
     name: 'Rogie',
     firstname: 'Gaetan',
@@ -32,9 +28,21 @@ selectedPizza: Pizza;
   ];
   selectedIngredients: Ingredient[] = [];
 
-  constructor() {
-    this.calculateAge();
+// j'injecte le service dans le composant
+  constructor(private pizzaService: PizzaService) {
+   // constructeur vide
+   
   }
+
+// le composant Angular s'initialise
+// Document ready pour Angular
+ngOnInit() {
+   this.calculateAge();
+  // On recupere le composant dans le service
+   this.pizzaService.getPizzas().then(pizzas => this.pizzas = pizzas);
+
+}
+
 
   private calculateAge(): void {
     let currentDate = Date.now(); // 2020-01-16 en timestamp (millisecondes)
